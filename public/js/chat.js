@@ -1,65 +1,77 @@
 const socket =io()
-socket.on("clientConnected",(msg)=>{
-
-    const messageArea = document.querySelector("#messages");
-    const template = document.querySelector('#messageTemplate').innerHTML;
-    
-    const html = Mustache.render(template,{message:msg,
-    style: "background-color:blue;color:white" 
-    });
-    console.log(typeof(html))
-
-     messageArea.insertAdjacentHTML("beforeend",html);
-
-
-    console.log(msg);
-})
-
-socket.on("newUserJoined",(msg)=>{
-
-    const messageArea = document.querySelector("#messages");
-    const template = document.querySelector('#messageTemplate').innerHTML;
-    
-    const html = Mustache.render(template,{message:msg,
-        style: "background-color:#21ff25;text-align:center;" 
-    });
-    console.log(typeof(html))
-
-     messageArea.insertAdjacentHTML("beforeend",html);
-
-    console.log(msg);
-})
-
-socket.on("messageReceived",(msg)=>{
-
-    
-    console.log(msg);
-    const messageArea = document.querySelector("#messages");
-    const template = document.querySelector('#messageTemplate').innerHTML;
-    
-    const html = Mustache.render(template,{message:msg});
-    console.log(typeof(html))
-
-     messageArea.insertAdjacentHTML("beforeend",html);
-
-})
-
-socket.on("userLeft",(msg)=>{
+socket.on("clientConnected",(msgObject)=>{
 
     const messageArea = document.querySelector("#messages");
     const template = document.querySelector('#messageTemplate').innerHTML;
     
     const html = Mustache.render(template,{
         
-        message:msg,
+        message:msgObject.message,
+        createdAt : moment(msgObject.createdAt).format("h:mm a"),
+        style: "background-color:blue;color:white" 
+    });
+    console.log(typeof(html))
+
+     messageArea.insertAdjacentHTML("beforeend",html);
+
+
+    //console.log(msg);
+})
+
+socket.on("newUserJoined",(msgObject)=>{
+
+    const messageArea = document.querySelector("#messages");
+    const template = document.querySelector('#messageTemplate').innerHTML;
     
+    const html = Mustache.render(template,{
+        message:msgObject.message,
+        createdAt : moment(msgObject.createdAt).format("h:mm a"),
+        style: "background-color:#21ff25;text-align:center;" 
+    });
+   // console.log(typeof(html))
+
+     messageArea.insertAdjacentHTML("beforeend",html);
+
+   // console.log(msg);
+})
+
+socket.on("messageReceived",(msgObject)=>{
+
+    
+    //console.log(msg);
+    const messageArea = document.querySelector("#messages");
+    const template = document.querySelector('#messageTemplate').innerHTML;
+    
+    const html = Mustache.render(template,
+        
+        { 
+        message:msgObject.message,
+        createdAt : moment(msgObject.createdAt).format("h:mm a")
+     }
+        
+        );
+    console.log(typeof(html))
+
+     messageArea.insertAdjacentHTML("beforeend",html);
+
+})
+
+socket.on("userLeft",(msgObject)=>{
+
+    const messageArea = document.querySelector("#messages");
+    const template = document.querySelector('#messageTemplate').innerHTML;
+    
+    const html = Mustache.render(template,{
+        
+        message:msgObject.message,
+        createdAt : moment(msgObject.createdAt).format("h:mm a"),
         style: "background-color:silver;text-align:center;" 
     });
     console.log(typeof(html))
 
      messageArea.insertAdjacentHTML("beforeend",html);
 
-    console.log(msg);
+    //console.log(msg);
 })
 document.getElementById("messageForm").addEventListener('submit',
 
@@ -81,7 +93,7 @@ document.getElementById("messageForm").addEventListener('submit',
 }
 )
 
-socket.on("locationReceived",(msg,locationURL)=>{
+socket.on("locationReceived",(msgObject)=>{
 
     setTimeout(()=>{
 
@@ -91,13 +103,17 @@ socket.on("locationReceived",(msg,locationURL)=>{
     const messageArea = document.querySelector("#messages");
     const template = document.querySelector('#locationTemplate').innerHTML;
     
-    const html = Mustache.render(template,{location:locationURL})
+    const html = Mustache.render(template,{
+        location:msgObject.message,
+        createdAt : moment(msgObject.createdAt).format("h:mm a"),
+    
+    
+    })
    // console.log(typeof(html))
 
      messageArea.insertAdjacentHTML("beforeend",html);
 
-    console.log(msg);
-    console.log(locationURL);
+    
     
 })
 
@@ -112,7 +128,7 @@ function geoFindMe() {
 
         document.querySelector("#find-me").disabled=true;
         socket.emit("sendLocation",
-        `Location: ${position.coords.latitude},${position.coords.longitude} `,
+
         `https://google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`
         , ()=>{
             console.log("location delivered");
@@ -130,3 +146,11 @@ function geoFindMe() {
   }
   
   document.querySelector('#find-me').addEventListener('click', geoFindMe);
+
+
+const {name,room} = Qs.parse(location.search,{ignoreQueryPrefix:true})
+
+  socket.emit("join",{
+    name,
+    room
+  })

@@ -1,48 +1,23 @@
-.header{
-    background-color: #b83efa;
-    color:white;
-    width: 100% !important ;
+.main{
 
-}
-#messages{
-
-    border : 1px solid #f7f2e4;
     
-    padding-top: 3%;
-    margin-bottom: 5px;
-    background-color: #f7f2e4;
+    width: 100vw;
+    position: relative;
+    background-image: linear-gradient(#0F2027, #203A43,#2C5364);
+
+    
+    height:100vh;
 }
 
-.messageTemp {
+.join{
 
+    z-index: 1000;
+    position: absolute;
+
+    top:30%;
+    left : 20%;
+    width: 60%;
+    padding: 5%;
     background-color: white;
-    border-radius: 1.2rem;
-    display: table;
-    padding: 1% 3% 1%;
-    margin:1%;
 }
-.messageTemp p{
-    padding: 0px;
-    margin :0px;
-}
-
-@media screen and (max-width: 1400px) {
-    #messages{
-        padding-top: 7%;
-        
-    }
-  }
-  
-
-@media screen and (max-width: 768px) {
-    #messages{
-        padding-top: 15%;
-        
-    }
-  }
-  
-
-
-
-  
 
