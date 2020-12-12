@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path')
-const http = require('http')
+const http = require('https')
 const socketio = require('socket.io');
 const Filter = require('bad-words')
 const app = express();
