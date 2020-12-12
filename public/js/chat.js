@@ -134,7 +134,7 @@ document.getElementById("messageForm").addEventListener('submit',
     socket.emit("messageSent",msg ,(error)=>{
 
         if(error){
-           return console.log(error);
+           alert("no profane word is allowed!")
         }
         document.querySelector("#textBox").value="";
        document.querySelector("#textBox").focus();
