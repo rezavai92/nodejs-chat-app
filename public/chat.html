@@ -13,10 +13,21 @@
         <h1 style="text-align:center" >Chat App </h1>
  
     </div>
-<div class="main" >
 
-    <div id="messages" > 
+    <div class="main-flex" >
+
+        <div id="totalUsers" >
+        
+           
+        </div>
+
+        
+        <div id="messages" > 
+    
+        </div>
     </div>
+
+
 
 <form id = "messageForm"   >
     
@@ -32,12 +43,40 @@
     
 </form>
 
+<script id="renderedUsersTemplate" type="text/html" >
+
+    
+    <div class="renderedUsersTemp"  >
+        <h5>
+            Room : {{room}}    
+           </h5>
+        <h5>Users</h5>
+
+        <ul>
+
+            {{#users}}
+                <li> {{name}} </li>
+            {{/users}}
+        </ul>
+    </div>
+
+
+</script>
+
+
 <script id="messageTemplate"  type="text/html" >
 
     <div class="messageTemp" style={{style}} >
-        <p>
-            {{createdAt}}
-        </p>
+        
+        <div class="name-date-flex">
+            <div>
+                <h5>{{username}} </h5>
+            </div>
+            <div>
+               
+               {{createdAt}}
+            </div>
+        </div>
 
     <p> 
     {{message}}
@@ -51,12 +90,23 @@
 
 <script id="locationTemplate"  type="text/html" >
 
-    <div class="locationTemp" >
+    <div class="locationTemp" style={{style}}  >
 
-     <p>{{createdAt}} </p>   
-    <a href=
-    {{location}} target="_blank" > my current location
-    </a>
+        <div class="name-date-flex">
+            <div>
+                <h5>{{username}} </h5>
+            </div>
+            <div>
+               
+               {{createdAt}}
+            </div>
+        </div>
+        
+            <a style={{anchorStyle}} href={{location}} target="_blank" 
+                
+                > my current location
+            </a>
+        
     
     </div>  
          

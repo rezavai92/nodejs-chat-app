@@ -1,8 +1,28 @@
 .header{
-    background-color: #b83efa;
+    background-color: #b823fc;
     color:white;
     width: 100% !important ;
 
+}
+.main-flex{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  
+
+}
+
+#totalUsers{
+    padding-top: 5%;
+    margin-bottom: 5px;
+    width: 30%;
+    background-color: #514e54;
+    color:white;
+    
+    color: white;
+    
+    overflow-y: scroll
 }
 #messages{
 
@@ -10,16 +30,35 @@
     
     padding-top: 3%;
     margin-bottom: 5px;
-    background-color: #f7f2e4;
+    background-color: #f7f2e4 ;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+
+
 }
+
+.renderedUsersTemp{
+
+    padding:5%;
+}
+
+
 
 .messageTemp {
 
+    
     background-color: white;
     border-radius: 1.2rem;
     display: table;
     padding: 1% 3% 1%;
     margin:1%;
+}
+
+.name-date-flex{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .messageTemp p{
     padding: 0px;
@@ -36,7 +75,7 @@
 }
 
 @media screen and (max-width: 1400px) {
-    #messages{
+    #messages,#totalUsers{
         padding-top: 7%;
         
     }
@@ -44,7 +83,7 @@
   
 
 @media screen and (max-width: 768px) {
-    #messages{
+    #messages,#totalUsers{
         padding-top: 15%;
         
     }

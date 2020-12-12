@@ -7,6 +7,7 @@ form.addEventListener("submit",(e)=>{
     const name = document.querySelector("#username").value;
     const room = document.querySelector("#room").value;
 
-    location.search=`name=${name}&room=${room}`;
+    location.href=`/chat.html?name=${name}&room=${room}`;
+   // location.search=`name=${name}&room=${room}`;
     
 })
