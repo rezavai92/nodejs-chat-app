@@ -5,12 +5,21 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/chat.css" rel="stylesheet" > 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
     <div class="header fixed-top" >
-        <h1 style="text-align:center" >Chat App </h1>
+       
+        <h1 style="text-align:center" >
+            <i class="far fa-comment">
+
+
+            </i>
+            Go Chatty
+            </h1>
  
     </div>
 
@@ -35,8 +44,14 @@
     <div class="input-group mb-3">
   <input type="text" class="form-control" id="textBox" name="message" required placeholder="type here" aria-label="Username" aria-describedby="basic-addon1">
   
-  <button type="submit" class="btn btn-primary">Send</button>  
-  <button type="button" class="btn btn-secondary" id = "find-me">Send Location</button>
+  <button type="submit" class="btn btn-primary">
+
+    <i class="fas fa-paper-plane"></i>
+  </button>  
+  <button type="button" class="btn btn-secondary" id = "find-me">
+
+    <i class="fas fa-map-marker-alt"></i>
+  </button>
 
 </div>
     
@@ -48,14 +63,17 @@
     
     <div class="renderedUsersTemp"  >
         <h5>
-            Room : {{room}}    
+            {{room}}    
            </h5>
-        <h5>Users</h5>
+           <hr style="background-color : white" />
+        <h5>
+            <i class="fas fa-users"></i>
+            Users</h5>
 
         <ul>
 
             {{#users}}
-                <li> {{name}} </li>
+                <li> <span style="color:white" >{{name}} </span>  </li>
             {{/users}}
         </ul>
     </div>

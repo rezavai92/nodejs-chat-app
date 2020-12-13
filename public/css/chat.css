@@ -41,7 +41,13 @@
 .renderedUsersTemp{
 
     padding:5%;
+
 }
+
+.renderedUsersTemp ul li {
+    color:#05eb2f;
+}
+
 
 
 
@@ -86,6 +92,10 @@
     #messages,#totalUsers{
         padding-top: 15%;
         
+    }
+
+    #totalUsers{
+        width:40%;
     }
   }
   

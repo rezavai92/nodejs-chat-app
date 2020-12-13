@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>reza-chat-app</title>
@@ -14,16 +15,21 @@
     <div class="main" >
         <div class="join" >
 
+            <h2 style="text-align: center;">
+                <i class="fas fa-sign-in-alt"></i>  Registration
+            </h2>
             <form action="/chat.html" id="joinForm" >
+
                 <div class="form-group">
-                    <input class="form-control" id="username" type="text" placeholder="User Name">
+                    <input class="form-control" id="username" type="text"
+                     placeholder="Pick a Name">
                 </div>
                 <div class="form-group">
                   
                   <input class="form-control" id="room" type="text" placeholder="Chat Room">
                 </div>
                
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button  style="width: 100%;" type="submit" class="btn btn-primary">Join</button>
               </form>
             
           
