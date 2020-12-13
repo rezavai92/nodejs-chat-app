@@ -105,5 +105,5 @@ app.use(express.static(publicFolder))
 
 server.listen(port,()=>{
 
-   // console.log("app is listening to ",port)
+    console.log("app is listening to ",port)
 })

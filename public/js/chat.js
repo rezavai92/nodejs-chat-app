@@ -128,7 +128,7 @@ document.getElementById("messageForm").addEventListener('submit',
 (e)=>{
   
     e.preventDefault();
-
+    document.querySelector("#sendMessage").disabled=true;
     let msg =e.target.elements.message.value; 
     
     socket.emit("messageSent",msg ,(error)=>{
@@ -138,7 +138,8 @@ document.getElementById("messageForm").addEventListener('submit',
         }
         document.querySelector("#textBox").value="";
        document.querySelector("#textBox").focus();
-        console.log("message delivered");
+       // console.log("message delivered");
+        document.querySelector("#sendMessage").disabled=false;
     });
 }
 )
@@ -194,7 +195,7 @@ function geoFindMe() {
 
         `https://google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`
         , ()=>{
-            console.log("location delivered");
+           // console.log("location delivered");
         }
         )
   
