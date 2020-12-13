@@ -92,7 +92,7 @@ io.on("connection",(socket)=>{
             room : removedUser.room,
             users : getTotalUsers(removedUser.room)
         })
-   
+        
     }
       
     } )

@@ -1,7 +1,16 @@
-const socket =io()
+const socket =io({
+
+    transports : ['websocket']
+}
+    )
+
+
 
 const {name,room} = Qs.parse(location.search,{ignoreQueryPrefix:true})
+socket.on("reconnect_attempt",()=>{
 
+    socket.io.opts.transports=["polling","websockets"];
+})
 
 
 //auto scroll
