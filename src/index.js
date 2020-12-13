@@ -23,7 +23,7 @@ io.on("connection",(socket)=>{
 
     const {user,error} = addUser({name:name,room:room,id:socket.id});
 
-    console.log("running from index.js",error);
+    //console.log("running from index.js",error);
     if(error){
 
         return callback(error);
@@ -105,5 +105,5 @@ app.use(express.static(publicFolder))
 
 server.listen(port,()=>{
 
-    console.log("app is listening to ",port)
+   // console.log("app is listening to ",port)
 })
