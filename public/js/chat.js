@@ -10,7 +10,7 @@ const autoscroll = () => {
     // New message element
     const $messages = document.querySelector("#messages");
     const $newMessage = $messages.lastElementChild
-    console.log($newMessage)
+    //console.log($newMessage)
     // Height of the new message
     const newMessageStyles = getComputedStyle($newMessage)
     const newMessageMargin = parseInt(newMessageStyles.marginBottom)
@@ -97,7 +97,7 @@ socket.on("messageReceived",(msgObject)=>{
      }
         
         );
-    console.log(html)
+    //console.log(html)
 
      messageArea.insertAdjacentHTML("beforeend",html);
      autoscroll()
@@ -148,10 +148,10 @@ document.getElementById("messageForm").addEventListener('submit',
 
 socket.on("locationReceived",(msgObject)=>{
 
-    setTimeout(()=>{
+    
 
         document.querySelector("#find-me").disabled=false;
-    },1000)
+    
 
     const messageArea = document.querySelector("#messages");
     const template = document.querySelector('#locationTemplate').innerHTML;
