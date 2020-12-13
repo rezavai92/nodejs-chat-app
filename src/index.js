@@ -61,6 +61,7 @@ io.on("connection",(socket)=>{
     socket.on("messageSent",(msg,callback)=>{
         //console.log(msg)
         let receivedMessage ;
+        try{
         const user = getUser(socket.id);
 
         const filter = new Filter()
@@ -74,6 +75,10 @@ io.on("connection",(socket)=>{
       // console.log(receivedMessage)
        io.to(user.room).emit("messageReceived", generateMessage(user.name,receivedMessage));
         callback();
+    }
+    catch(e){
+        console.log(e);
+    }
     })
 
     socket.on("disconnect",()=>{
@@ -101,6 +106,10 @@ const publicFolder = path.join(__dirname,'..','public');
 //console.log(publicFolder)
 
 app.use(express.static(publicFolder))
+process.on("uncaughtException",(err)=>{
+    console.log(err)
+    process.exit(1)
+})
 
 
 server.listen(port,()=>{
