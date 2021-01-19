@@ -1,7 +1,13 @@
 # nodejs-chat-app
 
 ##Go Chatty
-A very basic but functional chat applicaiton made with node js and websockets
+A very basic but functional chat applicaiton made with node js and websockets. 
+
+key features:
+
+1) real time chat
+2)seeing location in the map
+3) autmatic detection of profane words and will not be sent .
 
 this web app is live at 
 https://reza-chat-app.herokuapp.com/
